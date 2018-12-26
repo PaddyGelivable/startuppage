@@ -1,16 +1,15 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { ClientType } from './client-type';
+import { BaseService } from './base-service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class SolutionproviderService {
+@Injectable()
+export class SolutionproviderService implements BaseService {
 
   showStartupPage: boolean;
   solutionNameList: string[] = [];
+  onContentStatusChanged: EventEmitter<{enableContent: boolean}> = new EventEmitter();
 
-  public onContentStatusChanged: EventEmitter<{enableContent: boolean}> = new EventEmitter();
-
-  constructor() {
+  constructor(private cefCustomObject: ClientType) {
     this.showStartupPage = true;
     document.addEventListener('ContentStatusChanged', (event: CustomEvent) => {
       this.onContentStatusChanged.emit({
@@ -22,7 +21,7 @@ export class SolutionproviderService {
   getSolutionList(): string[] {
     let num = 0;
 
-    cefCustomObject.getSolutionList().then(( projectName ) => {
+    this.cefCustomObject.getSolutionList().then(( projectName ) => {
       if (projectName !== '') {
         const result = JSON.parse(projectName);
 
@@ -34,7 +33,7 @@ export class SolutionproviderService {
   }
 
   openProject(projectName: string): void {
-    cefCustomObject.openProject(projectName);
+    this.cefCustomObject.openProject(projectName);
   }
 
   newProject(): void {

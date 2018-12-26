@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SolutionproviderService } from '../shared/solutionprovider.service';
+import { BaseService } from '../shared/base-service';
 
 @Component({
   selector: 'app-start-page',
@@ -12,7 +13,7 @@ export class StartPageComponent implements OnInit {
   showStartupPage: boolean;
   isContentDisabled: boolean;
 
-  constructor(private service: SolutionproviderService) {
+  constructor(private service: BaseService) {
     this.service.onContentStatusChanged.subscribe((value) => {
       this.updateContent(value.enableContent);
     });
