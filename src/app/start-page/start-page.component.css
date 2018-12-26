@@ -1,0 +1,32 @@
+.font-weight-normal{
+    font-size: 22px;
+}
+.main-header{
+    margin-left: 20px;
+    margin-top:5px;
+}
+.sub-header{
+    margin-left: 20px;
+}
+.project-link{
+    margin-left: 20px;
+    font-size: 15px;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+.solutions{
+    list-style-type: none;
+    padding: 0;
+}
+.form-check{
+    margin-left: 20px;
+    bottom: 20px;
+    position: absolute;
+    font-size: 15px;
+}
+.disableLink{
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+}
