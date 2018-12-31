@@ -1,25 +1,25 @@
 <div class="jumbtron">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <p class="font-weight-normal main-header">Project</p>
-      <p class="font-weight-light sub-header">Design, configure, program, visualize and maintain your machine</p>
-      <a class="project-link" href="#" onclick="cefCustomObject.newProject();" [class.disableLink]="isContentDisabled" >New...</a>
+      <p class="font-weight-normal main-header">{{'ProjectHeader'| translate}}</p>
+      <p class="font-weight-light sub-header">{{'ProjectHeaderDes'| translate}}</p>
+      <a class="project-link" href="#" onclick="cefCustomObject.newProject();" [class.disableLink]="isContentDisabled" >{{'NewProject' | translate}}</a>
       <br>
-      <a class="project-link" href="#" onclick="cefCustomObject.openExistingProject();" [class.disableLink]="isContentDisabled">Open Existing...</a>
+      <a class="project-link" href="#" onclick="cefCustomObject.openExistingProject();" [class.disableLink]="isContentDisabled">{{'OpenExistingProject'| translate}}</a>
       <br>
-      <a class="project-link" href="#" onclick="cefCustomObject.discoverProject();" [class.disableLink]="isContentDisabled">Discover...</a>
+      <a class="project-link" href="#" onclick="cefCustomObject.discoverProject();" [class.disableLink]="isContentDisabled">{{'DiscoverProject'| translate}}</a>
     </div>
     <div class="form-group col-md-6">
-      <p class="font-weight-normal main-header">Getting Started</p>
-      <p class="font-weight-light sub-header">Access online resources</p>
-      <a class="project-link" href="http://www.rockwellautomation.com/go/lit/ccws" target="_blank">Welcome to Connected Components Workbench</a>
+      <p class="font-weight-normal main-header">{{'GetStart'| translate}}</p>
+      <p class="font-weight-light sub-header">{{'AccessOnlineResource'| translate}}</p>
+      <a class="project-link" href="http://www.rockwellautomation.com/go/lit/ccws" target="_blank">{{'WelcomeCCW'| translate}}</a>
       <br>
-      <a class="project-link" href="http://www.rockwellautomation.com/global/products-technologies/connected-components/tools/workbench.page?#tab5" target="_blank">Training Videos</a>
+      <a class="project-link" href="http://www.rockwellautomation.com/global/products-technologies/connected-components/tools/workbench.page?#tab5" target="_blank">{{'TraningVideos'| translate}}</a>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <p class="font-weight-normal main-header">Recent</p>
+      <p class="font-weight-normal main-header">{{'RecentProject'| translate}}</p>
       <ul class="solutions">
         <li *ngFor="let projectName of solutionList" (click)="onSelect(projectName)"><a href="#" class="project-link">{{projectName}}</a></li>
       </ul>
@@ -28,7 +28,7 @@
   <div class="form-check">
     <input class="form-check-input" id="setStartupPage" type="checkbox" [(ngModel)]="showStartupPage" (change)="onSetStartupPage()">
     <label class="form-check-label" for="setStartupPage">
-      Show page on startup
+      {{'ShowStartpage'| translate}}
     </label>
   </div>
 </div>

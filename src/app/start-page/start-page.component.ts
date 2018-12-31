@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SolutionproviderService } from '../shared/solutionprovider.service';
 import { BaseService } from '../shared/base-service';
 
 @Component({

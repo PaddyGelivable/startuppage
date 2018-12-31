@@ -1,11 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { BaseService } from './base-service';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class MockServiceService implements BaseService {
-
   onContentStatusChanged: EventEmitter<{enableContent: boolean}> = new EventEmitter();
   showStartupPage: boolean;
+  currentLanguage: string;
 
   projectList = [
     'project10.ccwsln',
@@ -15,6 +16,7 @@ export class MockServiceService implements BaseService {
 
   constructor() {
     this.showStartupPage = true;
+    this.currentLanguage = 'en-US';
     document.addEventListener('ContentStatusChanged', (event: CustomEvent) => {
       this.onContentStatusChanged.emit({
         enableContent: event.detail.contentStatus
@@ -28,6 +30,10 @@ export class MockServiceService implements BaseService {
 
   getSolutionList(): string[] {
     return this.projectList;
+  }
+
+  getLanguage(): string {
+    return this.currentLanguage;
   }
 
   newProject(): void {
