@@ -15,5 +15,14 @@ export class AppComponent {
       // fallback language
       translate.setDefaultLang('en-US');
       translate.use(baseService.getLanguage());
-}
+
+      baseService.onLanguageChanged.subscribe((value) => {
+        this.updateLanguage(value.language);
+      });
+  }
+
+  updateLanguage(currentLanguage: string): void {
+    console.dir(currentLanguage);
+    this.translate.use(currentLanguage);
+  }
 }

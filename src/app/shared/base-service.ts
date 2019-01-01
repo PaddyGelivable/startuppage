@@ -1,5 +1,4 @@
 import { EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
 
 export abstract class BaseService {
     getSolutionList: () => string[];
@@ -10,4 +9,5 @@ export abstract class BaseService {
     discoverProject: () => void;
     showStartupPage: boolean;
     onContentStatusChanged: EventEmitter<{enableContent: boolean}>;
+    onLanguageChanged: EventEmitter<{language: string}>;
 }

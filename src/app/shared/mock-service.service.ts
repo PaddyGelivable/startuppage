@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 @Injectable()
 export class MockServiceService implements BaseService {
   onContentStatusChanged: EventEmitter<{enableContent: boolean}> = new EventEmitter();
+  onLanguageChanged: EventEmitter<{language: string}> = new EventEmitter();
   showStartupPage: boolean;
   currentLanguage: string;
 
@@ -20,6 +21,11 @@ export class MockServiceService implements BaseService {
     document.addEventListener('ContentStatusChanged', (event: CustomEvent) => {
       this.onContentStatusChanged.emit({
         enableContent: event.detail.contentStatus
+      });
+    });
+    document.addEventListener('LanguageChanged', (event: CustomEvent) => {
+      this.onLanguageChanged.emit({
+        language: event.detail.selectedLanguage
       });
     });
   }

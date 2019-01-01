@@ -9,6 +9,7 @@ export class SolutionproviderService implements BaseService {
   showStartupPage: boolean;
   solutionNameList: string[] = [];
   onContentStatusChanged: EventEmitter<{enableContent: boolean}> = new EventEmitter();
+  onLanguageChanged: EventEmitter<{language: string}> = new EventEmitter();
   currentLanguage: string;
 
   constructor(private cefCustomObject: ClientType) {
@@ -17,6 +18,12 @@ export class SolutionproviderService implements BaseService {
     document.addEventListener('ContentStatusChanged', (event: CustomEvent) => {
       this.onContentStatusChanged.emit({
         enableContent: event.detail.contentStatus
+      });
+    });
+    document.addEventListener('LanguageChanged', (event: CustomEvent) => {
+      console.dir(event);
+      this.onLanguageChanged.emit({
+        language: event.detail
       });
     });
   }
