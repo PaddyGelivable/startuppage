@@ -22,7 +22,6 @@ export class AppComponent {
   }
 
   updateLanguage(currentLanguage: string): void {
-    console.dir(currentLanguage);
     this.translate.use(currentLanguage);
   }
 }

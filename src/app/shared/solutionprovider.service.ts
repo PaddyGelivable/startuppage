@@ -21,7 +21,6 @@ export class SolutionproviderService implements BaseService {
       });
     });
     document.addEventListener('LanguageChanged', (event: CustomEvent) => {
-      console.dir(event);
       this.onLanguageChanged.emit({
         language: event.detail
       });
